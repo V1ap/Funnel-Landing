@@ -1,0 +1,25 @@
+@import "src/styles/vars.scss";
+
+.keyBtn {
+  padding: 12px 30px;
+  border: 2px solid $blackColor;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: center;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover:not(:disabled),
+  &:focus {
+    outline: none;
+    color: $whiteColor;
+    background-color: $blackColor;
+  }
+
+  &:disabled {
+    color: #4e4e4e;
+    border-color: #4e4e4e;
+  }
+}

@@ -3,4 +3,10 @@
 * {
   font-family: "Roboto", sans-serif;
   color: $blackColor;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
 }

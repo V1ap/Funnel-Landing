@@ -1,0 +1,143 @@
+@import "src/styles/vars.scss";
+
+.phone {
+  background-image: url("src/assets/img/background.png");
+  position: relative;
+
+  &__card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: center;
+    max-width: 380px;
+    padding: 72px 48px;
+    background-color: $blueColor;
+  }
+
+  &__header {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    max-width: 284px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: center;
+  }
+
+  &__input {
+    height: 38px;
+    max-width: 309px;
+    padding-bottom: 5px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    background-color: transparent;
+    text-align: center;
+    caret-color: transparent;
+    letter-spacing: 2px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $blackColor;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    max-width: 309px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__keyboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 284px;
+    padding: 20px 0;
+  }
+
+  &__key {
+    &_delete {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__personData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    & &Btn {
+      min-width: 40px;
+      width: 40px;
+      height: 40px;
+      padding: 8px 6px;
+      transition: border-color 0.3s ease;
+
+      & svg line {
+        transition: stroke 0.3s ease;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        border-color: $grayColor;
+
+        & svg line {
+          stroke: $grayColor;
+        }
+      }
+    }
+
+    &Text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16px;
+      max-width: 214px;
+      color: $grayColor;
+    }
+  }
+
+  &__btn {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+  }
+
+  & &__cancelBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 14px 30px;
+    background-color: $whiteColor;
+
+    &:hover,
+    &:focus {
+      & svg line {
+        stroke: $whiteColor;
+      }
+    }
+  }
+}
