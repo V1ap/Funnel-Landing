@@ -1,0 +1,72 @@
+@import "src/styles/vars.scss";
+
+.promo {
+  position: relative;
+  overflow: hidden;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__card {
+    position: absolute;
+    top: 220px;
+    right: 0;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px 10px;
+    background-color: $blueColor;
+
+    transition: transform 0.3s ease;
+  }
+
+  &__header {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 230px;
+  }
+
+  &__img {
+    height: 126px;
+    width: 126px;
+  }
+
+  &__qrCodeText {
+    max-width: 126px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  &__btn {
+    padding: 15px 65px;
+    color: $blueColor;
+    background-color: $blackColor;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid $blackColor;
+    transition: color 0.3s ease, background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $blueColor;
+      color: $blackColor;
+      outline: none;
+    }
+  }
+}
