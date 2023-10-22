@@ -15,6 +15,7 @@ interface IPhoneFrameProps {
 const PhoneFrame: React.FC<IPhoneFrameProps> = ({ onCancel, onSuccess }) => {
   const [inputValue, setInputValue] = useState("+7(___)___-__-__");
   const [isAgree, setIsAgree] = useState(false);
+  const [isSubmited, setIsSubmited] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const keyRef1 = useRef<HTMLButtonElement>(null);
   const keyRef2 = useRef<HTMLButtonElement>(null);
@@ -75,20 +76,41 @@ const PhoneFrame: React.FC<IPhoneFrameProps> = ({ onCancel, onSuccess }) => {
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
-    onSuccess();
+    setIsSubmited(true);
   };
 
   useEffect(() => {
     inputRef.current ? inputRef.current.focus() : null;
   }, [inputRef.current]);
 
+  useEffect(() => {
+    let timer = 1;
+    if (isSubmited) {
+      timer = setTimeout(() => {
+        onSuccess();
+      }, 600);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isSubmited]);
+
   return (
     <section className={styles.phone}>
       <article className={styles.phone__card}>
-        <h1 className={styles.phone__header}>
+        <h1
+          className={`${styles.phone__header} ${
+            isSubmited ? styles._submited : null
+          }`}
+        >
           Введите ваш номер мобильного телефона
         </h1>
-        <form action="" className={styles.phone__form} onSubmit={handleSubmit}>
+        <form
+          action=""
+          className={`${styles.phone__form} ${
+            isSubmited ? styles._submited : null
+          }`}
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             className={styles.phone__input}
